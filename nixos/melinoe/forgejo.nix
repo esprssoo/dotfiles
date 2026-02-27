@@ -29,6 +29,7 @@ in
         ENABLED = true;
       };
       mailer.ENABLED = false;
+      migrations.ALLOWED_DOMAINS = "github.com";
     };
   };
 }

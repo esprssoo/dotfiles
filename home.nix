@@ -54,7 +54,6 @@ in
     efm-langserver # Generic language server
     lua-language-server # Lua lsp
     gopls # Go lsp
-    # lexical # Elixir lsp
     shellcheck
     nodePackages.intelephense # PHP lsp
     nodePackages.typescript-language-server
