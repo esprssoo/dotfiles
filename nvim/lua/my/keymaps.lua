@@ -37,7 +37,6 @@ nmap("<Leader>u", vim.cmd.UndotreeToggle, "undotree")
 -- imap("<S-Tab>", require("my.tab").backwards)
 
 imap("jk", "<Esc>")
-imap("<C-e>", "<Plug>(copilot-accept-line)")
 
 vmap("<Leader>p", '"_dP')
 vmap(">", ">gv")
