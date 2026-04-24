@@ -46,19 +46,21 @@ in
     tldr
     biome
     dive
+    neovim
     nodejs_24
+    pi-coding-agent
 
     # LSP Executables
     nixd
-    nixfmt-rfc-style
+    nixfmt
     efm-langserver # Generic language server
     lua-language-server # Lua lsp
     gopls # Go lsp
     shellcheck
-    nodePackages.intelephense # PHP lsp
-    nodePackages.typescript-language-server
-    nodePackages.svelte-language-server
-    nodePackages.bash-language-server
+    intelephense # PHP lsp
+    typescript-language-server
+    svelte-language-server
+    bash-language-server
     prettierd
     eslint_d
     zls
@@ -101,11 +103,7 @@ in
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    package = pkgs.neovim;
-  };
+  home.sessionVariables.EDITOR = "nvim";
 
   programs.direnv = {
     enable = true;
