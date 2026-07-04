@@ -31,7 +31,7 @@ nmap("[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, "pr
 nmap("]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, "next diagnostic")
 nmap("[t", vim.cmd.tabp, "previous tab")
 nmap("]t", vim.cmd.tabn, "next tab")
-nmap("<Leader>u", vim.cmd.UndotreeToggle, "undotree")
+nmap("<Leader>u", require("undotree").open, "undotree")
 
 -- imap("<Tab>", require("my.tab").forwards)
 -- imap("<S-Tab>", require("my.tab").backwards)

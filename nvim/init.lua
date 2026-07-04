@@ -10,6 +10,7 @@ vim.g.maplocalleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.cmd "packadd nvim.undotree"
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if vim.fn.empty(vim.fn.glob(lazypath)) == 1 then
     vim.fn.system({
