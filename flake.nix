@@ -30,30 +30,43 @@
         overlays = [
           (self: super: {
             devbox = inputs.devbox.packages.${system}.default;
-            # lexical = pkgs.lexical.override {
-            #   elixir = pkgs.elixir_1_17;
-            # };
           })
           inputs.neovim-nightly-overlay.overlays.default
         ];
+        hosts = builtins.attrNames (builtins.readDir ./hosts);
+
+        # Build a home configuration; host = null means the default, which
+        # skips the per-host override module.
+        mkHomeConfiguration =
+          host:
+          let
+            hostModule = nixpkgs.lib.optional (host != null) ./hosts/${host}/home.nix;
+          in
+          {
+            name = if host == null then user else "${user}@${host}";
+            value = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+
+              modules = [
+                { nixpkgs.overlays = overlays; }
+                ./home.nix
+              ]
+              ++ hostModule;
+
+              extraSpecialArgs = {
+                extra = {
+                  inherit user dotfilesHome host;
+                };
+              };
+            };
+          };
       in
       {
         formatter = pkgs.nixfmt-rfc-style;
 
-        packages.homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            { nixpkgs.overlays = overlays; }
-            ./home.nix
-          ];
-
-          extraSpecialArgs = {
-            extra = { inherit user dotfilesHome; };
-          };
-        };
+        packages.homeConfigurations = builtins.listToAttrs (
+          (map mkHomeConfiguration hosts) ++ [ (mkHomeConfiguration null) ]
+        );
       }
     )
     // {

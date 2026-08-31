@@ -6,7 +6,14 @@ fish_add_path ~/.local/state/nix/profile/bin
 alias lsd="lsd --group-directories-first"
 alias newkey="gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
 alias usepodman="set -x -g DOCKER_HOST unix://(podman info --format '{{.Host.RemoteSocket.Path}}')"
-alias hm="home-manager switch --flake $HOME/.dotfiles"
+function hm --description "home-manager switch, using host config when available"
+    set -l host (hostname -s)
+    if test -d $HOME/.dotfiles/hosts/$host
+        home-manager switch --flake "$HOME/.dotfiles#$USER@$host" $argv
+    else
+        home-manager switch --flake "$HOME/.dotfiles#$USER" $argv
+    end
+end
 alias ssh="TERM=xterm-256color command ssh"
 abbr gs git status
 abbr gc git commit
