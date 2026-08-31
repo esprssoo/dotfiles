@@ -23,7 +23,7 @@ if type -q lsd
 end
 
 set -x GPG_TTY (tty)
-set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+# set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 set -x MANPAGER 'nvim +Man!'

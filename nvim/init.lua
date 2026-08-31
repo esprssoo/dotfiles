@@ -27,7 +27,7 @@ require("lazy").setup("plugins", { lockfile = vim.fn.stdpath("config") .. "/lazy
 
 -- vim.opt.background = "dark"
 vim.opt.clipboard = "unnamedplus"
-vim.opt.colorcolumn = { 100 }
+vim.opt.colorcolumn = "100"
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.conceallevel = 2
 vim.opt.cursorline = true
