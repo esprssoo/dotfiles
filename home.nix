@@ -27,7 +27,7 @@ in
   # plain files is through 'home.file'.
   xdg.configFile = {
     "nvim".source = symlink "nvim";
-    # "hypr".source = symlink "hypr";
+    "hypr".source = symlink "hypr";
     "ghostty".source = symlink "ghostty";
   };
 

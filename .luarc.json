@@ -1,4 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "workspace": {
+        "library": [
+            "/usr/share/hypr/stubs"
+        ]
+    },
     "Lua.workspace.checkThirdParty": false
 }
