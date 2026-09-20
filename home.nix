@@ -49,6 +49,7 @@ in
     neovim
     nodejs_24
     pi-coding-agent
+    mutagen
 
     # LSP Executables
     nixd
