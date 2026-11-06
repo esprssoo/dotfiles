@@ -1,6 +1,7 @@
 vim.lsp.config.svelte = {}
 vim.lsp.config.gopls = {}
 vim.lsp.config.ts_ls = {}
+vim.lsp.config.zls = {}
 
 vim.lsp.config.expert = {
     cmd = { vim.fn.expand '$HOME/.local/bin/expert', "--stdio" },
@@ -47,7 +48,7 @@ vim.lsp.config.nixd = {
     },
 }
 
-vim.lsp.enable { 'expert', 'lua_ls', 'svelte', 'intelephense', 'nixd', 'gopls', 'ts_ls' }
+vim.lsp.enable { 'expert', 'lua_ls', 'svelte', 'intelephense', 'nixd', 'gopls', 'ts_ls', 'zls' }
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)

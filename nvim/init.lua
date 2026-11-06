@@ -128,6 +128,7 @@ local fts = {
     "svelte",
     "markdown",
     "mdx",
+    "zig",
 }
 
 vim.treesitter.language.register('markdown', 'mdx')

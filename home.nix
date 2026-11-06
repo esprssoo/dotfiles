@@ -64,7 +64,6 @@ in
     bash-language-server
     prettierd
     eslint_d
-    zls
   ];
 
   fonts.fontconfig.enable = true;
