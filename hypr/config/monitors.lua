@@ -8,8 +8,8 @@
 -- })
 
 hl.monitor({
-    output    = MONITOR1,
-    mode      = "preferred",
-    position  = "auto",
-    scale     = "1.33",
+    output   = MONITOR1,
+    mode     = "preferred",
+    position = "auto",
+    scale    = "1.07",
 })
